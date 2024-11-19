@@ -1,0 +1,24 @@
+db_operation.h  db_operations.c  main.c  variables.c  variables.h
+
+gcc -c -fPIC db_operations.c -o db_operations.o
+gcc -c -fPIC variables.c -o variables.o
+gcc -shared -o libdb_operations.so db_operations.o variables.o
+gcc -o main main.c -L. -ldb_operations
+export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
+
+./main "my message" 1 'u'
+./main "my message" 1 'i'
+
+
+gcc -c -fPIC db_operations_mock.c -o db_operations_mock.o
+gcc -shared -o libdb_operations_mock.so db_operations_mock.o
+gcc -o test_process_message test_process_message.c -I/usr/include/CUnit -L/usr/lib -lcunit -L. -ldb_operations_mock
+export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
+./test_process_message
+
+
+gcc -o test_process_message test_process_message.c process_message.c db_operations_mock.c variables.c -lcunit
+./test_process_message
+
+
+https://gist.github.com/jonnyjava/42883d4e464167f81e2ee60a488a5ded
