@@ -1,0 +1,47 @@
+[ERROR] 2025-07-30 23:40:28 Config file log_cfg.txt not found. Using default log level INFO.
+[INFO] 2025-07-30 23:40:28 App started.
+[INFO] 2025-07-30 23:40:34 App finished.
+[INFO] 2025-07-30 23:41:21 App started.
+[INFO] 2025-07-30 23:41:28 App finished.
+[INFO] 2025-07-30 23:48:27 App started.
+[INFO] 2025-07-30 23:48:32 App finished.
+[INFO] 2025-07-30 23:49:03 Config file log_cfg.txt has level: 0
+[INFO] 2025-07-30 23:49:03 App started.
+[INFO] 2025-07-30 23:49:06 App finished.
+[INFO] 2025-07-31 00:11:18 Config file log_cfg.txt has level: 5
+[INFO] 2025-07-31 00:11:18 App started.
+[DEBUG] 2025-07-31 00:11:22 Input values: a=0.00, b=0.00, c=0.00
+[DEBUG] 2025-07-31 00:11:22 Calculated delta
+[DEBUG] 2025-07-31 00:11:22 Delta calculated: 0.00
+[DEBUG] 2025-07-31 00:11:22 Calculated x1
+[DEBUG] 2025-07-31 00:11:22 Calculated x2
+[DEBUG] 2025-07-31 00:11:22 Roots: x1=-nan, x2=-nan
+[INFO] 2025-07-31 00:11:22 App finished.
+[INFO] 2025-07-31 00:12:24 Config file log_cfg.txt has level: 5
+[INFO] 2025-07-31 00:12:24 App started.
+[DEBUG] 2025-07-31 00:12:26 Input values: a=0.00, b=0.00, c=0.00
+[DEBUG] 2025-07-31 00:12:26 Calculated delta
+[DEBUG] 2025-07-31 00:12:26 Delta calculated: 0.00
+[DEBUG] 2025-07-31 00:12:26 Calculated x1
+[DEBUG] 2025-07-31 00:12:26 Calculated x2
+[DEBUG] 2025-07-31 00:12:26 Roots: x1=-nan, x2=-nan
+[INFO] 2025-07-31 00:12:26 App finished.
+[INFO] 2025-07-31 00:14:29 Config file log_cfg.txt has level: 5
+[INFO] 2025-07-31 00:14:29 App started.
+[DEBUG] 2025-07-31 00:14:31 Input values: a=0.00, b=0.00, c=0.00
+[DEBUG] 2025-07-31 00:14:31 Calculated delta
+[DEBUG] 2025-07-31 00:14:31 Delta calculated: 0.00
+[DEBUG] 2025-07-31 00:14:31 Calculated x1
+[DEBUG] 2025-07-31 00:14:31 Calculated x2
+[DEBUG] 2025-07-31 00:14:31 Roots: x1=-nan, x2=-nan
+[INFO] 2025-07-31 00:14:31 App finished.
+[INFO] 2025-07-31 00:15:21 Config file log_cfg.txt has level: 0
+[INFO] 2025-07-31 00:15:21 App started.
+[INFO] 2025-07-31 00:15:23 App finished.
+[INFO] 2025-07-31 00:25:57 App started.
+[ERROR] 2025-07-31 00:25:57 Config file log_cfg.txt was empty or malformed. Using default log level INFO.
+[INFO] 2025-07-31 00:25:57 Config file log_cfg.txt has level: 32557
+[INFO] 2025-07-31 00:25:59 App finished.
+[INFO] 2025-07-31 00:29:06 App started.
+[ERROR] 2025-07-31 00:29:06 Config file log_cfg.txt was empty or malformed. Using default log level INFO.
+[INFO] 2025-07-31 00:29:08 App finished.
