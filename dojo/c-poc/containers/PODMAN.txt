@@ -1,0 +1,186 @@
+
+===== SETTING THE ENVIRONMENT UP =====
+POWERSHELL
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+EXECUTE ON WINDOWS
+Inst. podman desktop
+Inst. podman 
+
+WSL
+sudo apt update
+sudo apt install -y software-properties-common uidmap curl gnupg
+. /etc/os-release
+echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+curl -fsSL https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/xUbuntu_${VERSION_ID}/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/libcontainers.gpg > /dev/null
+sudo apt update
+sudo apt install -y podman
+
+
+===== PODMAN USAGE =====
+POWERSHELL
+podman machine list
+podman machine init
+podman machine start
+podman machine stop
+
+
+
+WSL:
+vim hello.c
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        printf("Usage: %s <name>\n", argv[0]);
+        return 1;
+    }
+
+    printf("Hello, %s!\n", argv[1]);
+    return 0;
+}
+
+
+
+vim Makefile
+# Makefile for hello.c
+
+CC = gcc
+CFLAGS = -Wall -Wextra
+TARGET = hello
+SRC = hello.c
+
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+            $(CC) $(CFLAGS) -o $(TARGET) $(SRC)
+
+clean:
+            rm -f $(TARGET)
+
+
+
+vim Dockerfile
+FROM ubuntu:latest
+COPY hello /hello
+RUN chmod +x /hello
+CMD ["/hello"]
+
+
+
+gcc hello.c -o hello
+or
+make hello
+
+
+
+WSL:
+cp hello hello.c Dockerfile /mnt/c/Users/giova/hello-container/
+
+
+
+CMD:
+podman build -t hello-c .
+podman run --rm hello-c ./hello ms_Ada
+
+
+
+
+
+
+---
+
+## ✅ SETTING UP THE ENVIRONMENT
+
+### 🖥️ POWERSHELL (Enable virtualization)
+```powershell
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+
+### 🪟 WINDOWS
+- Install **Podman Desktop** (GUI + VM manager)
+- Install **Podman CLI** (command-line tool)
+
+### 🐧 WSL (Linux setup)
+```bash
+sudo apt update
+sudo apt install -y software-properties-common uidmap curl gnupg
+. /etc/os-release
+echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+curl -fsSL https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/xUbuntu_${VERSION_ID}/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/libcontainers.gpg > /dev/null
+sudo apt update
+sudo apt install -y podman
+```
+
+---
+
+## 🚀 PODMAN USAGE
+
+### 🖥️ POWERSHELL
+```powershell
+podman machine list      # View available Podman VMs
+podman machine init      # Create a new Linux VM
+podman machine start     # Start the VM
+podman machine stop      # Stop the VM when done
+```
+
+---
+
+## 🧑‍💻 WSL: C App + Makefile
+
+### `hello.c`
+```c
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        printf("Usage: %s <name>\n", argv[0]);
+        return 1;
+    }
+
+    printf("Hello, %s!\n", argv[1]);
+    return 0;
+}
+```
+
+### `Makefile`
+```makefile
+# Makefile for hello.c
+
+CC = gcc
+CFLAGS = -Wall -Wextra
+TARGET = hello
+SRC = hello.c
+
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
+
+clean:
+	rm -f $(TARGET)
+```
+
+### Compile
+```bash
+gcc hello.c -o hello
+# or
+make hello
+```
+
+---
+
+## 📦 TRANSFER TO WINDOWS
+```bash
+cp hello hello.c Dockerfile /mnt/c/Users/giova/hello-container/
+```
+
+---
+
+## 🧪 BUILD & RUN IN CMD (Windows)
+```powershell
+podman build -t hello-c .
+podman run --rm hello-c ./hello ms_Ada
+```
+
+---
